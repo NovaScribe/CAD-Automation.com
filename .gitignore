@@ -1,0 +1,15 @@
+# 1. Ignore everything in the directory
+*
+
+# 2. Allow the .gitignore file itself (so Git keeps tracking your rules)
+!.gitignore
+
+# 3. Allow specified files
+!index.html
+
+# allow .py files in the root directory
+!*.html
+!*.css
+
+#allow specific directories and their contents
+#!.vscode/
