@@ -31,15 +31,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (!match) {
         titleEl.textContent = 'Macro Not Found';
-        descEl.textContent = `No matching macro found for "${itemId}".`;
+        descEl.style.display = 'none';
         videoEl.style.display = 'none';
-        downloadBtn.href = '#';
-        downloadBtn.textContent = 'Download unavailable';
+        downloadBtn.style.display = 'none';
         return;
       }
 
       titleEl.textContent = match.macro_name || itemId;
-      descEl.textContent = match.description || 'No description available.';
+      
+      if (match.description) {
+        descEl.textContent = match.description;
+        descEl.style.display = 'block';
+      }else {
+        descEl.style.display = 'none';
+      }
 
       const downloadUrl = `https://vba.infinityfree.me/download.php?filename=${encodeURIComponent(match.macro_name)}`;
       downloadBtn.href = downloadUrl;
