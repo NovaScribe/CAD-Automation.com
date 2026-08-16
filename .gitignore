@@ -10,6 +10,7 @@
 # allow .py files in the root directory
 !*.html
 !*.css
+!*.js
 
 #allow specific directories and their contents
 #!.vscode/
