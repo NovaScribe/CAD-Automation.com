@@ -11,6 +11,7 @@
 !*.html
 !*.css
 !*.js
+!*.csv
 
 #allow specific directories and their contents
 #!.vscode/
