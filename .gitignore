@@ -5,7 +5,7 @@
 !.gitignore
 
 # 3. Allow specified files
-!index.html
+#!index.html
 
 # allow .py files in the root directory
 !*.html
@@ -15,3 +15,4 @@
 
 #allow specific directories and their contents
 #!.vscode/
+index_ref.html

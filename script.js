@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
-      titleEl.textContent = match.macro_name || itemId;
+      titleEl.textContent = match.title || itemId;
       
       if (match.description) {
         descEl.textContent = match.description;
@@ -55,7 +55,10 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
-      const videoUrl = `videos/${match.video_name}`;
+      // const videoUrl = `videos/${match.video_name}`;
+      const videoUrl = `https://vba.infinityfree.me/video/${encodeURIComponent(match.video_name)}`;
+      console.log(videoUrl);
+      
       videoEl.src = videoUrl;
       videoEl.load();
 
