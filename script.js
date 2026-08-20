@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
     download: true,
     header: true,
     skipEmptyLines: true,
-    complete: function(results) {
+    complete: function (results) {
       const match = results.data.find(row =>
         row.macro_name && row.macro_name.trim().toLowerCase() === itemId.trim().toLowerCase()
       );
@@ -38,11 +38,11 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       titleEl.textContent = match.title || itemId;
-      
+
       if (match.description) {
         descEl.textContent = match.description;
         descEl.style.display = 'block';
-      }else {
+      } else {
         descEl.style.display = 'none';
       }
 
@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
       // const videoUrl = `videos/${match.video_name}`;
       const videoUrl = `https://vba.infinityfree.me/video/${encodeURIComponent(match.video_name)}`;
       console.log(videoUrl);
-      
+
       videoEl.src = videoUrl;
       videoEl.load();
 
@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
         videoEl.insertAdjacentElement('afterend', fallback);
       }, { once: true });
     },
-    error: function(error) {
+    error: function (error) {
       titleEl.textContent = 'Error loading data';
       descEl.textContent = error.message;
       videoEl.style.display = 'none';
@@ -78,64 +78,95 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  
-    getEmailBySeid(getCookie('seid')).then(userEmail => {
-        const authLink = document.getElementById('auth-link');
-        if (userEmail) {
-            ides = userEmail;
-            authLink.innerHTML = `<div class="user-menu"><span>${userEmail}</span>
+
+  getEmailBySeid(getCookie('seid')).then(userEmail => {
+    const authLink = document.getElementById('auth-link');
+    if (userEmail) {
+      ides = userEmail;
+      authLink.innerHTML = `<div class="user-menu"><span>${userEmail}</span>
                 <a style="margin-left: 10px;" id='logout'>Logout</a></div>`;
 
-            document.getElementById('logout').addEventListener('click', (e) => {
-                e.preventDefault();
-                // Clear the cookie
-                document.cookie = "seid=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-                // Refresh
-                location.reload();
-            });
-        }
-    });
+      document.getElementById('logout').addEventListener('click', (e) => {
+        e.preventDefault();
+        // Clear the cookie
+        document.cookie = "seid=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        // Refresh
+        location.reload();
+      });
+    }
+  });
+
+  document.getElementById('loginForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+
+    try {
+      const response = await fetch('https://vba.infinityfree.me/login.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username, password })
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        // Store token in browser local storage
+        localStorage.setItem('seid', data.token);
+
+        // Redirect to dashboard on GitHub Pages
+        window.location.href = '/dashboard.html';
+      } else {
+        alert(data.message || 'Login failed');
+      }
+    } catch (err) {
+      alert('Connection error');
+    }
+  });
+
 
 });
 
 // Function to get a specific cookie by name
 function getCookie(name) {
-    let value = "; " + document.cookie;
-    let parts = value.split("; " + name + "=");
-    if (parts.length === 2) return parts.pop().split(";").shift();
+  let value = "; " + document.cookie;
+  let parts = value.split("; " + name + "=");
+  if (parts.length === 2) return parts.pop().split(";").shift();
 }
 
 async function getEmailBySeid(seid) {
-    const formData = new FormData();
-    formData.append('seid', seid);
+  const formData = new FormData();
+  formData.append('seid', seid);
 
-    try {
-        const response = await fetch('getUser.php', {
-            method: 'POST',
-            body: formData
-        });
+  try {
+    const response = await fetch('getUser.php', {
+      method: 'POST',
+      body: formData
+    });
 
-        const data = await response.json();
+    const data = await response.json();
 
-        if (data.success) {
-            //console.log("User Email:", data.email);
-            return data.email;
-        } else {
-            //console.error("Error:", data.message);
-            return null;
-        }
-    } catch (error) {
-        //console.error("Network error:", error);
+    if (data.success) {
+      //console.log("User Email:", data.email);
+      return data.email;
+    } else {
+      //console.error("Error:", data.message);
+      return null;
     }
+  } catch (error) {
+    //console.error("Network error:", error);
+  }
 }
 
 function logVisit() {
-    const data = {
-        path: window.location.pathname,
-        referrer: document.referrer,
-        screen_res: `${window.screen.width}x${window.screen.height}`,
-    };
+  const data = {
+    path: window.location.pathname,
+    referrer: document.referrer,
+    screen_res: `${window.screen.width}x${window.screen.height}`,
+  };
 
-    // sendBeacon sends an asynchronous POST request
-    navigator.sendBeacon('/log_visit.php', JSON.stringify(data));
+  // sendBeacon sends an asynchronous POST request
+  navigator.sendBeacon('/log_visit.php', JSON.stringify(data));
 }
+
