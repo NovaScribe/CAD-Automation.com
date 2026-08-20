@@ -85,6 +85,11 @@
   style.href = "style.css?v=" + versionUpdate;
   document.head.appendChild(style);
 
+  var script = document.createElement('script');
+  style.type = "text/javascript";
+  script.src = "script.js?v=" + versionUpdate;
+  document.head.appendChild(script);
+
 </script>
 
 </html>
