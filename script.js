@@ -79,11 +79,33 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
 
-  getEmailBySeid(getCookie('seid')).then(userEmail => {
+  // getEmailBySeid(getCookie('seid')).then(userEmail => {
+  //   const authLink = document.getElementById('auth-link');
+  //   if (userEmail) {
+  //     ides = userEmail;
+  //     authLink.innerHTML = `<div class="user-menu"><span>${userEmail}</span>
+  //               <a style="margin-left: 10px;" id='logout'>Logout</a></div>`;
+
+  //     document.getElementById('logout').addEventListener('click', (e) => {
+  //       e.preventDefault();
+  //       // Clear the cookie
+  //       document.cookie = "seid=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+  //       // Refresh
+  //       location.reload();
+  //     });
+  //   }
+  // });
+
+  const token = localStorage.getItem('seid');
+
+  if (!token) {
+    // User is not logged in, send back to login
+    window.location.href = 'login.html';
+  }else {
+    // User is logged in, fetch their email
     const authLink = document.getElementById('auth-link');
-    if (userEmail) {
-      ides = userEmail;
-      authLink.innerHTML = `<div class="user-menu"><span>${userEmail}</span>
+
+      authLink.innerHTML = `<div class="user-menu"><span></span>
                 <a style="margin-left: 10px;" id='logout'>Logout</a></div>`;
 
       document.getElementById('logout').addEventListener('click', (e) => {
@@ -94,10 +116,9 @@ document.addEventListener('DOMContentLoaded', () => {
         location.reload();
       });
     }
-  });
 
-  document.getElementById('loginForm').addEventListener('submit', async (e) => {
-    e.preventDefault();
+  document.getElementById('loginForm').addEventListener('submit', async function (e) {
+    e.preventDefault(); // Stop standard form redirect
 
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
@@ -112,16 +133,16 @@ document.addEventListener('DOMContentLoaded', () => {
       const data = await response.json();
 
       if (data.success) {
-        // Store token in browser local storage
+        // Store the session token safely in browser local storage
         localStorage.setItem('seid', data.token);
 
-        // Redirect to dashboard on GitHub Pages
-        window.location.href = '/dashboard.html';
+        // Redirect user to your main page inside GitHub Pages
+        window.location.href = 'https://novascribe.github.io/CAD-Automation.com/index.html';
       } else {
-        alert(data.message || 'Login failed');
+        alert(data.message || 'Login failed.');
       }
     } catch (err) {
-      alert('Connection error');
+      alert('Could not connect to the login server.');
     }
   });
 
