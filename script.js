@@ -3,60 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const descEl = document.getElementById('macro-description');
   const downloadBtn = document.getElementById('download-btn');
   const videoEl = document.getElementById('macro-video');
-  const loginForm = document.getElementById('loginForm');
-  const authLink = document.getElementById('auth-link');
-
-  // 1. Handle Login Form (Only runs on pages with #loginForm like login.html)
-  if (loginForm) {
-    loginForm.addEventListener('submit', async function (e) {
-      e.preventDefault();
-
-      const username = document.getElementById('username').value;
-      const password = document.getElementById('password').value;
-
-      try {
-        const response = await fetch('https://vba.infinityfree.me/login.php', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ username, password })
-        });
-
-        const data = await response.json();
-
-        if (data.success) {
-          localStorage.setItem('seid', data.token);
-          window.location.href = 'https://novascribe.github.io/CAD-Automation.com/index.html';
-        } else {
-          alert(data.message || 'Login failed.');
-        }
-      } catch (err) {
-        alert('Could not connect to the login server.');
-      }
-    });
-    return; // Stop further execution on login.html
-  }
-
-  // 2. Authentication Check for Protected Pages
-  const token = localStorage.getItem('seid');
-  if (!token) {
-    window.location.href = 'login.html';
-    return;
-  }
-
-  // 3. Render Header UI for Authenticated Users
-  if (authLink) {
-    authLink.innerHTML = `
-      <div class="user-menu">
-        <a style="margin-left: 10px;" id="logout" href="#">Logout</a>
-      </div>`;
-
-    document.getElementById('logout').addEventListener('click', (e) => {
-      e.preventDefault();
-      localStorage.removeItem('seid'); // Properly clear localStorage token
-      window.location.href = 'login.html';
-    });
-  }
-
+  
   // 4. Handle Item Page Logic (CSV Parsing & Video)
   if (!titleEl || !descEl || !downloadBtn || !videoEl) {
     return;
