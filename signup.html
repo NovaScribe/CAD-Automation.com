@@ -2,30 +2,30 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- logo/icon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <link rel="manifest" href="site.webmanifest">
-    <!-- cache -->
-    <meta http-equiv='cache-control' content='no-cache'>
-    <meta http-equiv='expires' content='0'>
-    <meta http-equiv='pragma' content='no-cache'>
-    <!-- browsers  -->
-    <meta name="msapplication-TileColor" content="#00aba9"> <!--Windows (Internet Explorer/Edge) -->
-    <meta name="theme-color" content="#ffffff"> <!--android browser-->
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"> <!--Windows IE enable max higher engine -->
-    <!-- title and descriptions -->
-    <title>Price Drop Alert | Amazon | Flipkart | Myntra | Ajio</title>
-    <meta name="description"
-        content="Get notified via email for live price drops on Amazon, Flipkart, and Myntra. Create your watchlist and save money today!">
-    <link rel="canonical" href="https://pricetracker.infinityfree.me/">
-    <meta name="keywords"
-        content="Price Drop Alert India, Amazon Price Tracker, Flipkart Price History, Myntra Price Notifier, Lowest Price Finder, Online Shopping Deals">
-    <!-- user defined -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- logo/icon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="manifest" href="site.webmanifest">
+  <!-- cache -->
+  <meta http-equiv='cache-control' content='no-cache'>
+  <meta http-equiv='expires' content='0'>
+  <meta http-equiv='pragma' content='no-cache'>
+  <!-- browsers  -->
+  <meta name="msapplication-TileColor" content="#00aba9"> <!--Windows (Internet Explorer/Edge) -->
+  <meta name="theme-color" content="#ffffff"> <!--android browser-->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"> <!--Windows IE enable max higher engine -->
+  <!-- title and descriptions -->
+  <title>Price Drop Alert | Amazon | Flipkart | Myntra | Ajio</title>
+  <meta name="description"
+    content="Get notified via email for live price drops on Amazon, Flipkart, and Myntra. Create your watchlist and save money today!">
+  <link rel="canonical" href="https://pricetracker.infinityfree.me/">
+  <meta name="keywords"
+    content="Price Drop Alert India, Amazon Price Tracker, Flipkart Price History, Myntra Price Notifier, Lowest Price Finder, Online Shopping Deals">
+  <!-- user defined -->
 </head>
 
 <body>
@@ -42,24 +42,27 @@
       </nav>
     </div>
   </header>
-    <main class="container content">
-        <form action="/signup.php" method="post">
-            <div class="card login-card">
-                <h3>Signup</h3>
-                <div class="form-group">
-                    <label for="username">Email:</label>
-                    <input type="text" id="username" name="username" required>
-                </div>
-                <div class="form-group">
-                    <label for="password">New Password:</label>
-                    <input type="password" id="password" name="password" required>
-                </div>
-                <button type="submit">Sign Up</button>
-                <span>Or</span><a href="/login.html">Login</a>
-            </div>
-        </form>
-        <div></div>
-    </main>
+  <main class="container content">
+    <form action="https://vba.infinityfree.me/signup.php" method="post">
+      <div class="card login-card">
+        <h3>Signup</h3>
+        <!-- Standard Anti-CSRF Token or SameSite Session Cookie required on target domain -->
+        <input type="hidden" name="csrf_token" value="YOUR_GENERATED_CSRF_TOKEN">
+
+        <div class="form-group">
+          <label for="username">Email:</label>
+          <input type="text" id="username" name="username" required>
+        </div>
+        <div class="form-group">
+          <label for="password">New Password:</label>
+          <input type="password" id="password" name="password" required>
+        </div>
+        <button type="submit">Sign Up</button>
+        <span>Or</span><a href="/login.html">Login</a>
+      </div>
+    </form>
+    <div></div>
+  </main>
 
   <footer class="site-footer">
     <div class="container footer-container">
@@ -74,15 +77,15 @@
 
 </body>
 <script>
-    var date = new Date();
-    var current_time = date.getHours()
-    var current_date = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate() + "-" + date.getHours() + "-" + date.getMinutes();
-    var versionUpdate = current_date;
-    /*-----add js----------*/
-    var style = document.createElement('link');
-    style.rel = "stylesheet";
-    style.href = "style.css?v=" + versionUpdate;
-    document.head.appendChild(style);
+  var date = new Date();
+  var current_time = date.getHours()
+  var current_date = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate() + "-" + date.getHours() + "-" + date.getMinutes();
+  var versionUpdate = current_date;
+  /*-----add js----------*/
+  var style = document.createElement('link');
+  style.rel = "stylesheet";
+  style.href = "style.css?v=" + versionUpdate;
+  document.head.appendChild(style);
 
 </script>
 

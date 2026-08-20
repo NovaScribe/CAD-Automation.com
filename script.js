@@ -77,4 +77,65 @@ document.addEventListener('DOMContentLoaded', () => {
       downloadBtn.textContent = 'Download unavailable';
     }
   });
+
+  
+    getEmailBySeid(getCookie('seid')).then(userEmail => {
+        const authLink = document.getElementById('auth-link');
+        if (userEmail) {
+            ides = userEmail;
+            authLink.innerHTML = `<div class="user-menu"><span>${userEmail}</span>
+                <a style="margin-left: 10px;" id='logout'>Logout</a></div>`;
+
+            document.getElementById('logout').addEventListener('click', (e) => {
+                e.preventDefault();
+                // Clear the cookie
+                document.cookie = "seid=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+                // Refresh
+                location.reload();
+            });
+        }
+    });
+
 });
+
+// Function to get a specific cookie by name
+function getCookie(name) {
+    let value = "; " + document.cookie;
+    let parts = value.split("; " + name + "=");
+    if (parts.length === 2) return parts.pop().split(";").shift();
+}
+
+async function getEmailBySeid(seid) {
+    const formData = new FormData();
+    formData.append('seid', seid);
+
+    try {
+        const response = await fetch('getUser.php', {
+            method: 'POST',
+            body: formData
+        });
+
+        const data = await response.json();
+
+        if (data.success) {
+            //console.log("User Email:", data.email);
+            return data.email;
+        } else {
+            //console.error("Error:", data.message);
+            return null;
+        }
+    } catch (error) {
+        //console.error("Network error:", error);
+    }
+}
+
+function logVisit() {
+    const data = {
+        path: window.location.pathname,
+        referrer: document.referrer,
+        screen_res: `${window.screen.width}x${window.screen.height}`,
+    };
+
+    // sendBeacon sends an asynchronous POST request
+    navigator.sendBeacon('/log_visit.php', JSON.stringify(data));
+}
