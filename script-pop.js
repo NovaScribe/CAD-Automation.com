@@ -10,8 +10,7 @@ function getCookie(name) {
   return null;
 }
 
-// Helper function to set a cookie (defaulted to expire in 30 days)
-function setCookie(name, value, days = 30) {
+function setCookie(name, value, days = 15) {
   const date = new Date();
   date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
   const expires = `expires=${date.toUTCString()}`;
@@ -36,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (!userEmail) {
     setTimeout(() => {
       openModal();
-    }, 2000);
+    }, 1500);
   } else {
     // console.log('User email already stored in cookie:', userEmail);
   }
@@ -45,8 +44,8 @@ document.addEventListener('DOMContentLoaded', () => {
 // Event Listeners
 closeModalBtn.addEventListener('click', closeModal);
 
-// click outer to close modal
 /*
+// click outer to close modal
 modalOverlay.addEventListener('click', (e) => {
   if (e.target === modalOverlay) {
     closeModal();
