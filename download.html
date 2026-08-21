@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CATIA Macros | Automation Scripts</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style-pop.css">
 </head>
+
 <body>
 
   <header class="site-header">
@@ -33,7 +36,7 @@
       <h3 id="macro-title" class="macro-name">Loading title...</h3>
       <p id="macro-description">Loading description...</p>
       <br>
-    
+
       <!-- Changed to anchor tag wrapped or styled as a button -->
       <a id="download-btn" href="#" class="btn" download>Download</a>
       <br>
@@ -43,6 +46,19 @@
       <video id="macro-video" class="video" src="" controls></video>
     </section>
   </main>
+
+  <div id="modalOverlay" class="modal-overlay">
+    <div class="modal">
+      <button id="closeModalBtn" class="close-btn">&times;</button>
+      <h2>Join Our Newsletter</h2>
+      <p>Enter your email address to stay updated.</p>
+
+      <form id="emailForm">
+        <input type="email" id="emailInput" placeholder="Enter your email" required>
+        <button type="submit" class="submit-btn">Submit</button>
+      </form>
+    </div>
+  </div>
 
   <footer class="site-footer">
     <div class="container footer-container">
@@ -56,5 +72,7 @@
   </footer>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
   <script src="script.js"></script>
+  <script src="script-pop.js"></script>
 </body>
+
 </html>

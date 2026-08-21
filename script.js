@@ -1,4 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
+
+  
   const titleEl = document.getElementById('macro-title');
   const descEl = document.getElementById('macro-description');
   const downloadBtn = document.getElementById('download-btn');
@@ -75,4 +77,9 @@ document.addEventListener('DOMContentLoaded', () => {
       downloadBtn.textContent = 'Download unavailable';
     }
   });
+
+  // setTimeout(() => {
+  //   openModal();
+  // }, 2000);
+  
 });
