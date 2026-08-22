@@ -76,10 +76,26 @@ document.addEventListener('DOMContentLoaded', () => {
       downloadBtn.href = '#';
       downloadBtn.textContent = 'Download unavailable';
     }
-  });
-
-  // setTimeout(() => {
-  //   openModal();
-  // }, 2000);
-  
+  });  
 });
+
+async function logPageVisit() {
+  try {
+    await fetch("https://page-logs.maneeshbabu6.workers.dev", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      // Pass a valid JSON stringified object
+      body: JSON.stringify({
+        url: window.location.href,
+        timestamp: new Date().toISOString()
+      }),
+      keepalive: true
+    });
+  } catch (error) {
+    console.error("Failed to record page log:", error);
+  }
+}
+
+logPageVisit();
