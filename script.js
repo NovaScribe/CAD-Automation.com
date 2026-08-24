@@ -106,7 +106,7 @@ function createMacroList() {
   const macroListEl = document.getElementById('macro-list');
 
   if (!macroListEl) {
-    console.error('Macro list element not found.');
+    //console.error('Macro list element not found.');
     return;
   }
 
