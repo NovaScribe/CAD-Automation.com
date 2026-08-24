@@ -30,7 +30,7 @@ function closeModal() {
 // Check for existing cookie on page load
 document.addEventListener('DOMContentLoaded', () => {
   const userEmail = getCookie('user_email');
-  
+
   // If the cookie does NOT exist, open popup after 2 seconds
   if (!userEmail) {
     setTimeout(() => {
