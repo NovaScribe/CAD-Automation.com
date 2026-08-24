@@ -38,6 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 1500);
   } else {
     // console.log('User email already stored in cookie:', userEmail);
+    setCookie('user_email', userEmail, 30); // Extend cookie for another 30 days
   }
 });
 
@@ -53,7 +54,7 @@ modalOverlay.addEventListener('click', (e) => {
 });
 */
 
-// Handle form submission
+// Handle form submission email to server
 emailForm.addEventListener('submit', (e) => {
   e.preventDefault();
   

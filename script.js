@@ -1,11 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-  
+
   const titleEl = document.getElementById('macro-title');
   const descEl = document.getElementById('macro-description');
   const downloadBtn = document.getElementById('download-btn');
   const videoEl = document.getElementById('macro-video');
-  
+
+
   // 4. Handle Item Page Logic (CSV Parsing & Video)
   if (!titleEl || !descEl || !downloadBtn || !videoEl) {
     return;
@@ -76,7 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
       downloadBtn.href = '#';
       downloadBtn.textContent = 'Download unavailable';
     }
-  });  
+  });
 });
 
 async function logPageVisit() {
@@ -99,3 +100,31 @@ async function logPageVisit() {
 }
 
 logPageVisit();
+createMacroList();
+
+function createMacroList() {
+  const macroListEl = document.getElementById('macro-list');
+
+  if (!macroListEl) {
+    console.error('Macro list element not found.');
+    return;
+  }
+
+  Papa.parse('./data.csv', {
+    download: true,
+    header: true,
+    skipEmptyLines: true,
+    complete: function (results) {
+      results.data.forEach(function (row) {
+          const listItem = document.createElement('li');
+          listItem.textContent = row.title || row.macro_name || 'Unnamed Macro';
+          const downloadLink = document.createElement('a');
+          downloadLink.href = `https://vba.infinityfree.me/download.php?filename=${encodeURIComponent(row.macro_name)}`;
+          downloadLink.textContent = 'Download';
+          listItem.appendChild(document.createTextNode(' '));
+          listItem.appendChild(downloadLink);
+          macroListEl.appendChild(listItem);
+      });
+    }
+  });
+}
