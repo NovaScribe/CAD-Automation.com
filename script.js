@@ -119,7 +119,7 @@ function createMacroList() {
           const listItem = document.createElement('li');
           listItem.textContent = row.title || row.macro_name || 'Unnamed Macro';
           const downloadLink = document.createElement('a');
-          downloadLink.href = `https://novascribe.github.io/CAD-Automation.com/download.html?filename=${encodeURIComponent(row.macro_name)}`;
+          downloadLink.href = `https://novascribe.github.io/CAD-Automation.com/download.html?item=${encodeURIComponent(row.macro_name)}`;
           downloadLink.textContent = 'Download';
           listItem.appendChild(document.createTextNode(' '));
           listItem.appendChild(downloadLink);
