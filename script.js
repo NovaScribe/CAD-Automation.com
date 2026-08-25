@@ -99,8 +99,6 @@ async function logPageVisit() {
   }
 }
 
-logPageVisit();
-createMacroList();
 
 function createMacroList() {
   const macroListEl = document.getElementById('macro-list');
@@ -119,7 +117,7 @@ function createMacroList() {
           const listItem = document.createElement('li');
           listItem.textContent = row.title || row.macro_name || 'Unnamed Macro';
           const downloadLink = document.createElement('a');
-          downloadLink.href = `https://novascribe.github.io/CAD-Automation.com/download.html?item=${encodeURIComponent(row.macro_name)}`;
+          downloadLink.href = `/download.html?item=${encodeURIComponent(row.macro_name)}`;
           downloadLink.textContent = 'Download';
           listItem.appendChild(document.createTextNode(' '));
           listItem.appendChild(downloadLink);
@@ -128,3 +126,17 @@ function createMacroList() {
     }
   });
 }
+
+logPageVisit();
+createMacroList();
+
+// Initialize slider
+const slider = new PromoSlider('.promo-slider-container');
+
+// Dynamically add items
+slider.addItem('https://picsum.photos/800/450?random=1', 'NEW');
+slider.addItem('https://picsum.photos/800/450?random=2', 'POPULAR');
+// slider.addItem('https://picsum.photos/800/450?random=3');
+// slider.addItem('https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4', 'VIDEO');
+// slider.addItem('https://picsum.photos/800/450?random=5');
+// slider.addItem('https://picsum.photos/800/450?random=6');
