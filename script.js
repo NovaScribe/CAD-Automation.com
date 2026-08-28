@@ -131,12 +131,12 @@ logPageVisit();
 createMacroList();
 
 // Initialize slider
-//const slider = new PromoSlider('.promo-slider-container');
+const slider = new PromoSlider('.promo-slider-container');
 
 // Dynamically add items
-//slider.addItem('https://picsum.photos/800/450?random=1', 'NEW');
-//slider.addItem('https://picsum.photos/800/450?random=2', 'POPULAR');
-// slider.addItem('https://picsum.photos/800/450?random=3');
+slider.addItem('png\Macro Dashboard.png', 'POPULAR');
+slider.addItem('png\create_body_and_publish.png', 'NEW');
+slider.addItem('png\round_figure_dimension_in_sketch.png');
 // slider.addItem('https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4', 'VIDEO');
 // slider.addItem('https://picsum.photos/800/450?random=5');
 // slider.addItem('https://picsum.photos/800/450?random=6');

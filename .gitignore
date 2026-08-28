@@ -7,7 +7,7 @@
 # 3. Allow specified files
 #!index.html
 
-# allow .py files in the root directory
+# allow type files in the root directory
 !*.html
 !*.css
 !*.js
@@ -19,3 +19,7 @@ index_ref.html
 script_0.js
 contact-form.html
 Database.html
+
+# allow the folder and its file
+!png/
+!png/**
