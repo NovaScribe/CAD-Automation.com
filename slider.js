@@ -16,8 +16,8 @@ class PromoSlider {
     window.addEventListener('resize', () => this.updateLayout());
   }
 
-  addItem(mediaUrl, badgeText = null) {
-    this.items.push({ mediaUrl, badgeText });
+  addItem(mediaUrl, badgeText = null, url = null) {
+    this.items.push({ mediaUrl, badgeText, url });
     this.render();
   }
 
@@ -30,6 +30,14 @@ class PromoSlider {
     card.className = 'promo-card';
     if (isDuplicate) card.setAttribute('aria-hidden', 'true');
 
+    const content = item.url ? document.createElement('a') : card;
+    if (item.url) {
+      content.href = item.url;
+      content.style.display = 'block';
+      content.style.width = '100%';
+      content.style.height = '100%';
+    }
+
     if (this.isVideo(item.mediaUrl)) {
       const video = document.createElement('video');
       video.autoplay = true;
@@ -37,20 +45,22 @@ class PromoSlider {
       video.muted = true;
       video.playsInline = true;
       video.src = item.mediaUrl;
-      card.appendChild(video);
+      content.appendChild(video);
     } else {
       const img = document.createElement('img');
       img.src = item.mediaUrl;
       img.alt = 'Promo Item';
-      card.appendChild(img);
+      content.appendChild(img);
     }
 
     if (item.badgeText) {
       const badge = document.createElement('div');
       badge.className = 'promo-badge';
       badge.textContent = item.badgeText;
-      card.appendChild(badge);
+      content.appendChild(badge);
     }
+
+    if (item.url) card.appendChild(content);
 
     return card;
   }
