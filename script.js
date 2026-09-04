@@ -119,13 +119,39 @@ function createMacroList() {
           const downloadLink = document.createElement('a');
           downloadLink.href = `download.html?item=${encodeURIComponent(row.macro_name)}`;
           downloadLink.textContent = 'Download';
+          var updateDate = row.update_date ? `   ${row.update_date}` : '';
+          var updateDateEl = document.createElement('span');
+          updateDateEl.textContent = updateDate;
+          updateDateEl.classList.add('update-date');
+          // updateDateEl.style.animation =COLOER_ANIMATION;
           listItem.appendChild(document.createTextNode(' '));
           listItem.appendChild(downloadLink);
+          listItem.appendChild(updateDateEl);
           macroListEl.appendChild(listItem);
       });
     }
   });
 }
+
+// JavaScript
+var dBtn = document.getElementById('download-btn');
+if (dBtn) {
+dBtn.addEventListener('click', function(event) {
+  // 1. Stop the browser from immediately following the href link
+  event.preventDefault();
+  
+  // 2. Show to read t&c and confirm the download
+  const userConfirmed = confirm("Info: Please read the Terms & Conditions before downloading. By clicking 'OK', you agree to the terms and conditions.");
+  
+  // 3. If the user clicks "OK", manually trigger the navigation
+  if (userConfirmed) {
+    window.location.href = this.href;
+  }
+  
+  // If they click "Cancel", nothing happens and they stay on the page
+});
+}
+
 
 logPageVisit();
 createMacroList();

@@ -249,3 +249,57 @@ a:hover {
     border: none;
     cursor: pointer;
 }
+.update-date {
+  /* Uses a linear timing function to fade smoothly */
+  animation: smooth-blink 2s linear infinite;
+  font-style: italic;
+  font-size: 0.9rem;
+  color: #5f5f5f;
+}
+
+@keyframes smooth-blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+#download-btn {
+  /* Layout & Alignment */
+  display: inline-flex;
+  align-items: center;
+  gap: 10px; /* Space between icon and text */
+  
+  /* Typography */
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffffff;
+  text-decoration: none; /* Removes default underline */
+  
+  /* Sizing & Shape */
+  padding: 14px 28px;
+  border-radius: 50px; /* Pill-shaped */
+  
+  /* Background & Depth */
+  background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%); /* Modern Purple/Blue gradient */
+  box-shadow: 0 4px 15px rgba(79, 70, 229, 0.3);
+  
+  /* Micro-interactions */
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+/* Hover & Focus Interactions */
+#download-btn:hover {
+  transform: translateY(-2px); /* Moves button up slightly */
+  box-shadow: 0 6px 20px rgba(79, 70, 229, 0.4);
+  background: linear-gradient(135deg, #4f46e5 0%, #4338ca 100%);
+}
+
+#download-btn:active {
+  transform: translateY(0); /* Pushes down when clicked */
+  box-shadow: 0 3px 10px rgba(79, 70, 229, 0.2);
+}
