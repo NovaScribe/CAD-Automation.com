@@ -3,9 +3,11 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+
 }
 
 body {
+
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   line-height: 1.6;
   color: #333;
@@ -13,6 +15,7 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+
 }
 
 .container {
@@ -110,20 +113,23 @@ a:hover {
 .footer-links a {
   color: #666;
 }
-.btn{
+
+.btn {
   background: #39bdff;
   padding: 0.5rem;
   border-radius: 5px;
-  border:none;
+  border: none;
   padding: 0.5rem 1.5rem;
 }
-.video{
+
+.video {
   max-width: 480px;
   width: 100%;
 }
 
 /* --- Responsive Mobile Layout --- */
 @media (max-width: 600px) {
+
   .header-container,
   .footer-container {
     flex-direction: column;
@@ -136,78 +142,31 @@ a:hover {
   }
 
   #myForm {
-        display: flex;
-        flex-direction: column;
-    }
-
-    #myForm label,
-    #myForm input,
-    #myForm button {
-        width: 100%;
-        font-size: medium;
-        /* padding: 10px; */
-        display: inline;
-        margin: auto;
-        /* max-height: 2rem; */
-        /* border: #686868 1px dotted; */
-    }
-
-    .card {
-        background: var(--white);
-        border-radius: 12px;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-        padding: 0.5rem;
-    }
-
-    .login-card {
-        width: 100%;
-        height: 400px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        margin: auto;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        border-radius: 10px;
-        background-color: #f9f9f9;
-
-    }
-
-}
-
-/* -----------form --------------- */
-#myForm {
     display: flex;
-    gap: 10px;
-    margin-top: 20px;
-}
+    flex-direction: column;
+  }
 
-#myForm input {
-    flex: 1;
-    /* Takes up available space */
-    padding: 12px 15px;
-    border: 2px solid #eee;
-    /* Softer border */
-    border-radius: 8px;
-    transition: border-color 0.3s ease;
-}
+  #myForm label,
+  #myForm input,
+  #myForm button {
+    width: 100%;
+    font-size: medium;
+    /* padding: 10px; */
+    display: inline;
+    margin: auto;
+    /* max-height: 2rem; */
+    /* border: #686868 1px dotted; */
+  }
 
-#myForm input:focus {
-    outline: none;
-    border-color: var(--primary-color);
-}
+  .card {
+    background: var(--white);
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    padding: 0.5rem;
+  }
 
-#myForm button {
-    padding: 12px 24px;
-    font-weight: 600;
-    border-radius: 8px;
-    background: linear-gradient(135deg, #0984e3, #00a8ff);
-    box-shadow: 0 4px 12px rgba(9, 132, 227, 0.2);
-}
-
-.login-card {
-    width: 400px;
-    max-width: 400px;
+  .login-card {
+    width: 100%;
     height: 400px;
     display: flex;
     flex-direction: column;
@@ -215,52 +174,106 @@ a:hover {
     align-items: center;
     margin: auto;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 50px;
     border-radius: 10px;
     background-color: #f9f9f9;
+
+  }
+
+}
+
+/* -----------form --------------- */
+#myForm {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+#myForm input {
+  flex: 1;
+  /* Takes up available space */
+  padding: 12px 15px;
+  border: 2px solid #eee;
+  /* Softer border */
+  border-radius: 8px;
+  transition: border-color 0.3s ease;
+}
+
+#myForm input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+}
+
+#myForm button {
+  padding: 12px 24px;
+  font-weight: 600;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #0984e3, #00a8ff);
+  box-shadow: 0 4px 12px rgba(9, 132, 227, 0.2);
+}
+
+.login-card {
+  width: 400px;
+  max-width: 400px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 50px;
+  border-radius: 10px;
+  background-color: #f9f9f9;
 
 }
 
 .login-card input {
-    width: 100%;
-    box-sizing: border-box;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
 }
 
 .form-group {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    /* Keeps labels left-aligned */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  /* Keeps labels left-aligned */
 }
 
 .login-card button {
-    background-color: #0984e3;
-    width: 50%;
-    padding: 10px;
-    margin: 10px 0;
-    max-width: 160px;
-    color: white;
-    border: none;
-    cursor: pointer;
+  background-color: #0984e3;
+  width: 50%;
+  padding: 10px;
+  margin: 10px 0;
+  max-width: 160px;
+  color: white;
+  border: none;
+  cursor: pointer;
 }
+
 .update-date {
   /* Uses a linear timing function to fade smoothly */
   animation: smooth-blink 2s linear infinite;
   font-style: italic;
   font-size: 0.9rem;
   color: #5f5f5f;
+    white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 @keyframes smooth-blink {
-  0%, 100% {
+
+  0%,
+  100% {
     opacity: 1;
   }
+
   50% {
     opacity: 0;
   }
@@ -270,23 +283,27 @@ a:hover {
   /* Layout & Alignment */
   display: inline-flex;
   align-items: center;
-  gap: 10px; /* Space between icon and text */
-  
+  gap: 10px;
+  /* Space between icon and text */
+
   /* Typography */
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
   font-size: 16px;
   font-weight: 600;
   color: #ffffff;
-  text-decoration: none; /* Removes default underline */
-  
+  text-decoration: none;
+  /* Removes default underline */
+
   /* Sizing & Shape */
   padding: 14px 28px;
-  border-radius: 50px; /* Pill-shaped */
-  
+  border-radius: 50px;
+  /* Pill-shaped */
+
   /* Background & Depth */
-  background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%); /* Modern Purple/Blue gradient */
+  background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+  /* Modern Purple/Blue gradient */
   box-shadow: 0 4px 15px rgba(79, 70, 229, 0.3);
-  
+
   /* Micro-interactions */
   transition: all 0.3s ease;
   cursor: pointer;
@@ -294,12 +311,78 @@ a:hover {
 
 /* Hover & Focus Interactions */
 #download-btn:hover {
-  transform: translateY(-2px); /* Moves button up slightly */
+  transform: translateY(-2px);
+  /* Moves button up slightly */
   box-shadow: 0 6px 20px rgba(79, 70, 229, 0.4);
   background: linear-gradient(135deg, #4f46e5 0%, #4338ca 100%);
 }
 
 #download-btn:active {
-  transform: translateY(0); /* Pushes down when clicked */
+  transform: translateY(0);
+  /* Pushes down when clicked */
   box-shadow: 0 3px 10px rgba(79, 70, 229, 0.2);
+}
+
+#software {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  width: 100%;
+  margin: 2rem 0;
+}
+
+.software-item .secondary-text {
+  margin-top: 0.45rem;
+  color: #6b7280;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.software-item {
+  display: flex;
+  min-height: 8rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem 1rem;
+  border: 1px solid #d8e8f5;
+  border-radius: 12px;
+  background: linear-gradient(145deg, #ffffff, #f4faff);
+  box-shadow: 0 8px 20px rgba(23, 92, 145, 0.08);
+  text-align: center;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #17324d;
+  cursor: pointer;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.software-item:hover {
+  border-color: #39bdff;
+  box-shadow: 0 14px 28px rgba(23, 92, 145, 0.16);
+  transform: translateY(-4px);
+}
+
+.software-item:active {
+  transform: translateY(0);
+  box-shadow: 0 8px 16px rgba(23, 92, 145, 0.1);
+}
+
+@media (max-width: 700px) {
+  #software {
+    grid-template-columns: 1fr;
+    margin: 1.5rem 0;
+  }
+
+  .software-item {
+    min-height: 6rem;
+  }
+}
+
+#macro-list li {
+  border-bottom: 1px solid #e0e0e0;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
 }

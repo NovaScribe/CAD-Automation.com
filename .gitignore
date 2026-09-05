@@ -1,5 +1,6 @@
 # 1. Ignore everything in the directory
 *
+.hintrc
 
 # 2. Allow the .gitignore file itself (so Git keeps tracking your rules)
 !.gitignore
