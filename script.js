@@ -165,6 +165,3 @@ slider.addItem('png\\create_body_and_publish.png', 'NEW', "download.html?item=cr
 slider.addItem('png\\image_1c484494.jpg');
 slider.addItem('png\\round_figure_dimension_in_sketch.png', 'UPDATED', "download.html?item=round_figure_dimension_in_sketch.catvba");
 slider.addItem('png\\image_8031023a.jpg');
-// slider.addItem('https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4', 'VIDEO');
-// slider.addItem('https://picsum.photos/800/450?random=5');
-// slider.addItem('https://picsum.photos/800/450?random=6');
