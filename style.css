@@ -127,6 +127,56 @@ a:hover {
   width: 100%;
 }
 
+.how-to-use {
+  max-width: 760px;
+  margin: 1.5rem 0 2rem;
+  padding: 1.25rem;
+  border: 1px solid #dce7f0;
+  border-radius: 6px;
+  background: #f7fbfe;
+}
+
+.how-to-use h2,
+.video-title {
+  margin: 0 0 1rem;
+  color: #12344d;
+}
+
+.usage-steps {
+  display: grid;
+  gap: 1rem;
+  margin: 0;
+  padding-left: 1.5rem;
+}
+
+.usage-steps li {
+  padding-left: 0.35rem;
+}
+
+.usage-steps strong,
+.usage-steps span {
+  display: block;
+}
+
+.usage-steps span {
+  margin-top: 0.25rem;
+  color: #4f5f6b;
+}
+
+.usage-note {
+  display: flex;
+  gap: 0.35rem;
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid #dce7f0;
+  color: #4f5f6b;
+}
+
+.video-title {
+  margin-top: 1.5rem;
+  font-size: 1.15rem;
+}
+
 /* --- Responsive Mobile Layout --- */
 @media (max-width: 600px) {
 

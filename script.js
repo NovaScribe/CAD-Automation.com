@@ -5,6 +5,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const descEl = document.getElementById('macro-description');
   const downloadBtn = document.getElementById('download-btn');
   const videoEl = document.getElementById('macro-video');
+  const howToUseEl = document.getElementById('how-to-use');
+  const usageStepsEl = document.getElementById('usage-steps');
 
 
   // 4. Handle Item Page Logic (CSV Parsing & Video)
@@ -50,6 +52,16 @@ document.addEventListener('DOMContentLoaded', () => {
         descEl.style.display = 'none';
       }
 
+      if (match.how_to_use && howToUseEl && usageStepsEl) {
+        usageStepsEl.replaceChildren();
+        match.how_to_use.split('||').map(step => step.trim()).filter(Boolean).forEach(step => {
+          const stepItem = document.createElement('li');
+          stepItem.textContent = step;
+          usageStepsEl.appendChild(stepItem);
+        });
+        howToUseEl.hidden = usageStepsEl.children.length === 0;
+      }
+
       const downloadUrl = `https://vba.infinityfree.me/download.php?filename=${encodeURIComponent(match.macro_name)}`;
       downloadBtn.href = downloadUrl;
       downloadBtn.textContent = 'Download';
@@ -63,12 +75,18 @@ document.addEventListener('DOMContentLoaded', () => {
       videoEl.src = videoUrl;
       videoEl.load();
 
+      var viewHeader = document.querySelector('h2.video-title');
+
       videoEl.addEventListener('error', () => {
         videoEl.style.display = 'none';
         const fallback = document.createElement('p');
         fallback.textContent = 'Video preview is not available for this macro yet.';
-        videoEl.insertAdjacentElement('afterend', fallback);
+        // videoEl.insertAdjacentElement('afterend', fallback);
+        videoEl.style.display = 'none';
+        viewHeader.style.display = 'none';
       }, { once: true });
+
+      
     },
     error: function (error) {
       titleEl.textContent = 'Error loading data';
