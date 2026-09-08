@@ -2,6 +2,7 @@
 *
 .hintrc
 
+
 # 2. Allow the .gitignore file itself (so Git keeps tracking your rules)
 !.gitignore
 
@@ -24,3 +25,5 @@ Database.html
 # allow the folder and its file
 !png/
 !png/**
+
+redirect.html
