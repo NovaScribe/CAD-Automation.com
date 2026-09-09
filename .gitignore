@@ -22,8 +22,11 @@ script_0.js
 contact-form.html
 Database.html
 
+
 # allow the folder and its file
 !png/
 !png/**
+!videos/
+!videos/**
 
 redirect.html

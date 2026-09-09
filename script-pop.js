@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // Event Listeners
-closeModalBtn.addEventListener('click', closeModal);
+//closeModalBtn.addEventListener('click', closeModal);
 
 /*
 // click outer to close modal

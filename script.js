@@ -47,6 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (match.description) {
         descEl.textContent = match.description;
+        console.log('Description:', match.description);
         descEl.style.display = 'block';
       } else {
         descEl.style.display = 'none';
@@ -71,7 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
-      const videoUrl = `https://vba.infinityfree.me/video/${encodeURIComponent(match.video_name)}`;
+      const videoUrl = `\\videos\\${encodeURIComponent(match.video_name)}`;
       videoEl.src = videoUrl;
       videoEl.load();
 
